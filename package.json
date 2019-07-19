@@ -1,0 +1,28 @@
+{
+  "name": "unmock-examples",
+  "version": "0.0.0",
+  "description": "Simple examples using unmock with 3rd party APIs",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/unmock/unmock-examples.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/unmock/unmock-examples/issues"
+  },
+  "homepage": "https://github.com/unmock/unmock-examples#readme",
+  "devDependencies": {
+    "@types/jest": "^24.0.15",
+    "jest": "^24.8.0",
+    "ts-jest": "^24.0.2",
+    "unmock-node": "^0.1.1"
+  },
+  "dependencies": {
+    "axios": "^0.19.0",
+    "typescript": "^3.5.3"
+  }
+}
