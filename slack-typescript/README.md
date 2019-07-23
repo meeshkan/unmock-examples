@@ -1,4 +1,4 @@
-# Testing Slack API with TypeScript
+# Mocking Slack API with Unmock in TypeScript
 
 ## Instructions
 
