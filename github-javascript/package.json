@@ -11,7 +11,7 @@
     "unmock-node": "^0.1.2"
   },
   "scripts": {
-    "start": "jest --watchAll",
+    "start": "jest",
     "test": "jest"
   }
 }
