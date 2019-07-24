@@ -2,6 +2,6 @@
 
 ## Instructions
 
-1. Install Node.js v. 10 or higher
-1. Install dependencies: `npm i` or `yarn` (if you use [yarn](https://yarnpkg.com/lang/en/))
-1. Run tests in watch mode: `npm run test` or `yarn test`
+1. Install [Node.js](https://nodejs.org/en/) v. 10 or higher
+1. Install dependencies: `npm i` or, if you use [yarn](https://yarnpkg.com/lang/en/): `yarn`
+1. Run tests: `npm run test` or `yarn test`
