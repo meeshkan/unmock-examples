@@ -1,4 +1,4 @@
-# Testing GitHub API with unmock in JavaScript
+# Hello World example of testing against an API with unmock in JavaScript
 
 ## Instructions
 
