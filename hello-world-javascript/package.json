@@ -1,7 +1,7 @@
 {
-  "name": "github-javascript",
+  "name": "hello-world-javascript",
   "version": "1.0.0",
-  "description": "Hello World example of testing GitHub API in JavaScript.\"",
+  "description": "Hello World example of testing calls against an API in JavaScript.\"",
   "author": "unmock",
   "license": "MIT",
   "private": false,
