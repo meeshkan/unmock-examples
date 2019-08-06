@@ -1,6 +1,6 @@
 // Test basic unmock with slack
 import axios from "axios";
-import * as unmock from "unmock-node";
+import unmock from "unmock-node";
 
 beforeAll(() => {
   unmock.on();
@@ -19,7 +19,9 @@ test("I can list some fake channels", async () => {
     // There are some channels indeed
     expect(data.channels.length).toBeGreaterThan(0);
     // And the channels might have members too!
-    expect(data.channels.every(channel => channel.members.length >= 0)).toBeTruthy();
+    expect(
+      data.channels.every(channel => channel.members.length >= 0)
+    ).toBeTruthy();
   }
 });
 
@@ -46,7 +48,9 @@ test("I can set force a response for specific endpoints", async () => {
 });
 
 test("I can also set a specific method", async () => {
-  unmock.states().slack.post("/channels.create", { ok: true, channel: { name: "foo" } }); // will throw if we try e.g. `slack.get("/channels.create" ...)`
+  unmock
+    .states()
+    .slack.post("/channels.create", { ok: true, channel: { name: "foo" } }); // will throw if we try e.g. `slack.get("/channels.create" ...)`
   const { data } = await axios.post("https://slack.com/api/channels.create");
   expect(data.ok).toBeTruthy();
   expect(data.channel.name).toEqual("foo");

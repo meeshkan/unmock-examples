@@ -1,5 +1,5 @@
 // hello.test.js
-const unmock = require("unmock-node");
+const unmock = require("unmock-node").default;
 const axios = require("axios");
 
 beforeAll(() => {
