@@ -4,5 +4,12 @@ Simple examples using [Unmock](https://unmock.io) with 3rd party APIs.
 
 ## Scripts
 
-- [test-all.sh](./test-all.sh) runs tests for all directories
-- [upgrade-all.sh](./upgrade-all.sh) upgrades unmock in all directories' `package.json`
+[run.sh](./run.sh) runs scripts in all directories
+
+```bash
+# Run tests in all directories
+./run.sh test
+
+# Upgrade unmock-node in all directories
+./run.sh upgrade
+```
