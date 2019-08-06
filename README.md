@@ -2,9 +2,9 @@
 
 Simple examples using [Unmock](https://unmock.io) with 3rd party APIs.
 
-## Scripts
+### Batch scripts
 
-[run.sh](./run.sh) runs scripts in all directories
+[run.sh](./run.sh) can be used to run a script for all examples as follows:
 
 ```bash
 # Run tests in all directories
