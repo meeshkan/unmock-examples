@@ -2,14 +2,10 @@
 
 set -ex
 
-for directory in */ ; do
+source ./loop-directories.sh
 
-    echo "Verifying $directory"
-    cd $directory
-        if [ ! -f package.json ]; then
-            echo "Skipping $directory"
-            continue
-        fi
-        yarn test
-    cd ..
-done
+run_tests () {
+    yarn test
+}
+
+loop_directories run_tests

@@ -2,14 +2,11 @@
 
 set -ex
 
-for directory in */ ; do
-    echo "Upgrading $directory"
-    cd $directory
-        if [ ! -f package.json ]; then
-            echo "Skipping $directory"
-            continue
-        fi
-        yarn
-        yarn add unmock-node
-    cd ..
-done
+source ./loop-directories.sh
+
+update_unmock () {
+    yarn
+    yarn add unmock-node
+}
+
+loop_directories update_unmock
