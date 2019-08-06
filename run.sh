@@ -26,7 +26,7 @@ run_tests () {
 upgrade_unmocks () {
     upgrade () {
         yarn
-        yarn add unmock-node
+        yarn add unmock-node -D
     }
     loop_directories upgrade
 }
