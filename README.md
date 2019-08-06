@@ -1,4 +1,6 @@
-# unmock-examples
+# Unmock examples
+
+[![CircleCI](https://circleci.com/gh/unmock/unmock-examples.svg?style=svg)](https://circleci.com/gh/unmock/unmock-examples)
 
 Simple examples using [Unmock](https://unmock.io) with 3rd party APIs.
 

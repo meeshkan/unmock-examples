@@ -4,7 +4,7 @@ set -ex
 
 loop_directories () {
     for directory in */ ; do
-        echo "Upgrading $directory"
+        echo "Moving to $directory"
         cd $directory
             if [ ! -f package.json ]; then
                 echo "Skipping $directory"
