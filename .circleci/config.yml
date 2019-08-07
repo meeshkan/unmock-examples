@@ -4,7 +4,7 @@
 #
 version: 2.1
 
-steps: &steps
+steps: &include_steps
   steps:
     - checkout
     - run: ./run.sh test
@@ -20,15 +20,14 @@ executors:
 jobs:
   node10:
     executor: node10
-    <<: *steps
-  node6:
-    executor: node6
-    <<: *steps
+    <<: *include_steps
+  node8:
+    executor: node8
+    <<: *include_steps
 
 workflows:
   version: 2
   test:
     jobs:
       - node10
-      - node6
-
+      - node8
