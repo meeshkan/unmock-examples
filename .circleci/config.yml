@@ -8,18 +8,18 @@ executors:
   node10:
     docker:
       - image: circleci/node:10.15.1
-  node4:
+  node6:
     docker:
-      - image: circleci/node:4.9.0
+      - image: circleci/node:6.10
 
 jobs:
-  test-node10:
+  node10:
     executor: node10
     steps:
       - checkout
       - run: ./run.sh test
-  test-node4:
-    executor: node4
+  node6:
+    executor: node6
     steps:
       - checkout
       - run: ./run.sh test
@@ -28,6 +28,6 @@ workflows:
   version: 2
   test:
     jobs:
-      - test-node10
-      - test-node4
+      - node10
+      - node6
 
