@@ -4,21 +4,39 @@
 #
 version: 2.1
 
-defaults: &defaults
-  working_directory: ~/repo
-  docker:
-    - image: circleci/node:10.15.1
+steps: &include_steps
+  steps:
+    - checkout
+    - run: ./run.sh test
+
+executors:
+  # See the full list of available images here
+  # https://circleci.com/docs/2.0/docker-image-tags.json
+  node10:
+    docker:
+      - image: circleci/node:10.15.1
+  node8:
+    docker:
+      - image: circleci/node:8.0
+  node6:
+    docker:
+      - image: circleci/node:6.10
 
 jobs:
-  test:
-    <<: *defaults
-    steps:
-      - checkout
-      - run: ./run.sh test
+  node10:
+    executor: node10
+    <<: *include_steps
+  node8:
+    executor: node8
+    <<: *include_steps
+  node6:
+    executor: node6
+    <<: *include_steps
 
 workflows:
   version: 2
   test:
     jobs:
-      - test
-
+      - node10
+      # - node8  # Does not run until we fix the usage of URL
+      # - node6  # Does not run before we use Babel to transform the test code
