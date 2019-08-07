@@ -17,7 +17,8 @@ loop_directories () {
 
 run_tests () {
     run_test () {
-        yarn
+        # To try and run in older versions of Node.js
+        yarn --ignore-engines
         yarn upgrade unmock-node -D
         yarn test
     }
