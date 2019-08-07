@@ -10,9 +10,14 @@ steps: &include_steps
     - run: ./run.sh test
 
 executors:
+  # See the full list of available images here
+  # https://circleci.com/docs/2.0/docker-image-tags.json
   node10:
     docker:
       - image: circleci/node:10.15.1
+  node8:
+    docker:
+      - image: circleci/node:8.0
   node6:
     docker:
       - image: circleci/node:6.10
