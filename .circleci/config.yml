@@ -19,15 +19,12 @@ executors:
   node10:
     docker:
       - image: circleci/node:10.15.1
-    # working_directory: "~/node10"
   node8:
     docker:
       - image: circleci/node:8.0
-    # working_directory: "~/node8"
   node6:
     docker:
       - image: circleci/node:6.10
-    # working_directory: "~/node6"
 
 jobs:
   node10:
@@ -46,4 +43,4 @@ workflows:
     jobs:
       - node10
       - node8
-      - node6
+      # - node6  # Does not run before we use Babel to transform the test code
