@@ -4,6 +4,11 @@
 #
 version: 2.1
 
+steps: &steps
+  steps:
+    - checkout
+    - run: ./run.sh test
+
 executors:
   node10:
     docker:
@@ -15,14 +20,10 @@ executors:
 jobs:
   node10:
     executor: node10
-    steps:
-      - checkout
-      - run: ./run.sh test
+    <<: *steps
   node6:
     executor: node6
-    steps:
-      - checkout
-      - run: ./run.sh test
+    <<: *steps
 
 workflows:
   version: 2
