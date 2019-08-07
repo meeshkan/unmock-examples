@@ -8,6 +8,7 @@ steps: &include_steps
   steps:
     # Upgrade yarn
     - run: curl -o- -L https://yarnpkg.com/install.sh | bash
+    - run: echo $(yarn -v)
     - checkout
     - run: ./run.sh test
 
@@ -31,6 +32,9 @@ jobs:
   node8:
     executor: node8
     <<: *include_steps
+  node6:
+    executor: node6
+    <<: *include_steps
 
 workflows:
   version: 2
@@ -38,3 +42,4 @@ workflows:
     jobs:
       - node10
       - node8
+      - node6
