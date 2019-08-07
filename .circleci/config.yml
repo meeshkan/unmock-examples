@@ -4,14 +4,22 @@
 #
 version: 2.1
 
-defaults: &defaults
-  working_directory: ~/repo
-  docker:
-    - image: circleci/node:10.15.1
+executors:
+  node10:
+    docker:
+      - image: circleci/node:10.15.1
+  node4:
+    docker:
+      - image: circleci/node:4.9.0
 
 jobs:
-  test:
-    <<: *defaults
+  test-node10:
+    executor: node10
+    steps:
+      - checkout
+      - run: ./run.sh test
+  test-node4:
+    executor: node4
     steps:
       - checkout
       - run: ./run.sh test
@@ -20,5 +28,6 @@ workflows:
   version: 2
   test:
     jobs:
-      - test
+      - test-node10
+      - test-node4
 
