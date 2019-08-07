@@ -6,6 +6,8 @@ version: 2.1
 
 steps: &include_steps
   steps:
+    # Upgrade yarn
+    - run: curl -o- -L https://yarnpkg.com/install.sh | bash
     - checkout
     - run: ./run.sh test
 
