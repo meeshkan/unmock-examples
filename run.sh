@@ -19,7 +19,7 @@ run_tests () {
     run_test () {
         # To try and run in older versions of Node.js
         yarn --ignore-engines
-        yarn upgrade unmock-node -D
+        yarn upgrade unmock-node -D --ignore-engines
         yarn test
     }
 
