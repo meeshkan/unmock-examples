@@ -1,0 +1,19 @@
+{
+  "name": "hello-world-javascript",
+  "version": "1.0.0",
+  "description": "Hello World example of testing calls against an API in JavaScript.\"",
+  "author": "unmock",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "axios": "^0.19.0"
+  },
+  "scripts": {
+    "start": "jest",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^24.8.0",
+    "unmock-node": "^0.1.9"
+  }
+}

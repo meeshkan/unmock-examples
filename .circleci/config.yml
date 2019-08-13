@@ -31,12 +31,14 @@ jobs:
     <<: *include_steps
   node6:
     executor: node6
-    <<: *include_steps
+    steps:
+      - checkout
+      - run: ./run.sh test node6
 
 workflows:
   version: 2
   test:
     jobs:
       - node10
-      # - node8  # Does not run until we fix the usage of URL
-      # - node6  # Does not run before we use Babel to transform the test code
+      - node8  # Does not run until we fix the usage of URL
+      - node6  # Does not run before we use Babel to transform the test code
