@@ -10,8 +10,8 @@ Simple examples using [Unmock](https://unmock.io) with 3rd party APIs.
 
 ```bash
 # Run tests in all directories
-./run.sh test
+./run.sh test [pattern]
 
 # Upgrade unmock-node in all directories
-./run.sh upgrade
+./run.sh upgrade [pattern]
 ```
