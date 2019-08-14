@@ -3,6 +3,8 @@ const unmock = require("unmock-node").default;
 const axios = require("axios");
 const jsf = require("json-schema-faker");
 
+console.log("type of jsf", typeof jsf);
+console.log("type of jsf.default", typeof jsf.default);
 console.log("type of jsf.generate", typeof jsf.generate);
 beforeAll(() => {
   unmock.on();
