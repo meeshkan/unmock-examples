@@ -38,5 +38,5 @@ workflows:
   test:
     jobs:
       - node10
-      - node8
+      # - node8
       # - node6  # Does not run before we use Babel to transform the test code
