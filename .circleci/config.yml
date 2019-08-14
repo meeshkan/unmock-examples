@@ -17,7 +17,7 @@ executors:
       - image: circleci/node:10.15.1
   node8:
     docker:
-      - image: circleci/node:chakracore-8.10
+      - image: circleci/node:8.14.0
   node6:
     docker:
       - image: circleci/node:6.10
