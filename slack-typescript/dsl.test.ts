@@ -1,11 +1,11 @@
 // Test unmock DSL with slack
 import axios from "axios";
-import unmock, { UnmockServices } from "unmock-node";
+import unmock, { Service } from "unmock-node";
 
-let slack: any;
+let slack: Service;
 
 beforeAll(() => {
-  slack = unmock.on().slack;
+  slack = unmock.on().services.slack;
 });
 
 afterAll(() => {
