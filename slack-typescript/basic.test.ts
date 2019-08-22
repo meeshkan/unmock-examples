@@ -2,11 +2,16 @@
 import axios from "axios";
 import unmock from "unmock-node";
 
+let slack: any;
 beforeAll(() => {
-  unmock.on();
+  slack = unmock.on().slack;
 });
-afterAll(() => unmock.off());
-beforeEach(() => unmock.states()!.reset());
+afterAll(() => {
+  unmock.off();
+});
+beforeEach(() => {
+  slack.state.reset();
+});
 
 test("I can list some fake channels", async () => {
   // Flaky mode!
@@ -26,7 +31,7 @@ test("I can list some fake channels", async () => {
 });
 
 test("I can force an error on all responses", async () => {
-  unmock.states()!.slack({ ok: false });
+  slack.state({ ok: false });
   const { data } = await axios.get("https://slack.com/api/channels.list");
   expect(data.ok).toBeFalsy();
   expect(typeof data.error).toBe("string");
@@ -36,10 +41,8 @@ test("I can force an error on all responses", async () => {
 });
 
 test("I can set force a response for specific endpoints", async () => {
-  unmock
-    .states()!
-    .slack("/channels.list", { ok: false })
-    .slack("/channels.info", { ok: true });
+  slack.state("/channels.list", { ok: false });
+  slack.state("/channels.info", { ok: true });
   const { data } = await axios.get("https://slack.com/api/channels.list");
   expect(data.ok).toBeFalsy();
   expect(typeof data.error).toBe("string");
@@ -48,9 +51,7 @@ test("I can set force a response for specific endpoints", async () => {
 });
 
 test("I can also set a specific method", async () => {
-  unmock
-    .states()!
-    .slack.post("/channels.create", { ok: true, channel: { name: "foo" } }); // will throw if we try e.g. `slack.get("/channels.create" ...)`
+  slack.state.post("/channels.create", { ok: true, channel: { name: "foo" } }); // will throw if we try e.g. `slack.get("/channels.create" ...)`
   const { data } = await axios.post("https://slack.com/api/channels.create");
   expect(data.ok).toBeTruthy();
   expect(data.channel.name).toEqual("foo");
