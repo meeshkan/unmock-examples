@@ -1,21 +1,53 @@
 // hello.test.js
 const unmock = require("unmock-node").default;
+const {
+  sinon: { assert, match },
+} = require("unmock-node");
 const axios = require("axios");
 
-beforeAll(() => {
-  unmock.on();
-});
+function fetchDataFromService() {
+  return axios.get("https://api.unmock.io").then(res => res.data);
+}
 
-test("hello endpoint returns correct JSON", async () => {
-  const res = await axios.get("https://api.unmock.io");
-  expect(Object.keys(res.data).length).toEqual(1);
-  expect(res.data.hello).toBeDefined();
-  expect(typeof res.data.hello === "string").toBe(true);
-});
+describe("hello endpoint", () => {
+  let helloService;
 
-test("setting a value for endpoint", async () => {
-  const helloService = unmock.services.hello;
-  helloService.state({ hello: "world" });
-  const res = await axios.get("https://api.unmock.io");
-  expect(res.data).toEqual({ hello: "world" });
+  beforeAll(() => {
+    helloService = unmock.on().services.hello;
+  });
+
+  afterAll(() => {
+    unmock.off();
+  });
+
+  beforeEach(() => {
+    helloService.reset();
+  });
+
+  test("should return valid JSON", async () => {
+    const responseBody = await fetchDataFromService();
+    expect(Object.keys(responseBody).length).toEqual(1);
+    expect(responseBody.hello).toBeDefined();
+    expect(typeof responseBody.hello === "string").toBe(true);
+  });
+
+  test("should return given string for endpoint when setting state", async () => {
+    helloService.state({ hello: "world" });
+    const responseBody = await fetchDataFromService();
+    expect(responseBody).toEqual({ hello: "world" });
+  });
+
+  test("should have made correct request", async () => {
+    await fetchDataFromService();
+    assert.calledOnce(helloService.spy);
+    assert.calledWith(helloService.spy, match({ method: "GET", path: "/" }));
+  });
+
+  test("should have handled response correctly", async () => {
+    const responseBody = await fetchDataFromService();
+    const firstCallReturnValue = helloService.spy.firstCall.returnValue;
+    expect(responseBody.hello).toEqual(
+      JSON.parse(firstCallReturnValue.body).hello
+    );
+  });
 });
