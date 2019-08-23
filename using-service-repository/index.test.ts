@@ -19,7 +19,7 @@ describe("Using unmock with petstore", () => {
     const pets = await fetchPets();
     sinon.assert.calledOnce(petstore.spy);
     const mockResponse = petstoreSpy.firstCall.returnValue;
-    expect(pets).toHaveLength(JSON.parse(mockResponse.body).length);
+    expect(pets).toHaveLength(JSON.parse(mockResponse.body!).length);
   });
   afterAll(() => {
     unmock.off();
