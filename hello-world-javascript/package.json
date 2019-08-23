@@ -14,7 +14,6 @@
   },
   "devDependencies": {
     "jest": "^24.8.0",
-    "unmock-core": "^0.2.0",
     "unmock-node": "^0.2.0"
   }
 }
