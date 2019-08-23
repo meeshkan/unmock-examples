@@ -1,15 +1,19 @@
 // Test unmock DSL with slack
 import axios from "axios";
-import unmock, { States } from "unmock-node";
+import unmock, { Service } from "unmock-node";
 
-let states: States;
+let slack: Service;
 
 beforeAll(() => {
-  states = unmock.on();
+  slack = unmock.on().services.slack;
 });
 
-afterAll(() => unmock.off());
-beforeEach(() => unmock.states()!.reset());
+afterAll(() => {
+  unmock.off();
+});
+beforeEach(() => {
+  slack.state.reset();
+});
 
 const postMessage = (message: string) =>
   axios.post("https://slack.com/api/chat.postMessage", {
@@ -17,7 +21,7 @@ const postMessage = (message: string) =>
   });
 
 test("I can enforce a response code", async () => {
-  unmock.states()!.slack({ $code: 200 }); // All responses are 200 in `slack`, but this enforces a success operation (ok = true)
+  slack.state({ $code: 200 }); // All responses are 200 in `slack`, but this enforces a success operation (ok = true)
   const resp = await postMessage("foo");
   expect(resp.status).toBe(200);
   expect(resp.data.ok).toBeTruthy();
@@ -26,9 +30,7 @@ test("I can enforce a response code", async () => {
 test("I can also force specific response for N times", async () => {
   // sync the response and request
   const text = "foo";
-  unmock
-    .states()!
-    .slack.post("/chat.postMessage", { message: { text }, $times: 3 });
+  slack.state.post("/chat.postMessage", { message: { text }, $times: 3 });
   // We set the message, which only exists with vallid response (ok = true), so it's implicitly set
   let resp = await postMessage(text);
   expect(resp.data.message.text).toEqual(text);
@@ -50,7 +52,7 @@ test("I can also force specific response for N times", async () => {
 
 test("I can determine how many users are in my channel", async () => {
   const nUsers = 23;
-  unmock.states()!.slack.get("/channels.list", {
+  slack.state.get("/channels.list", {
     channels: { members: { $size: nUsers } },
     $times: 2,
   });

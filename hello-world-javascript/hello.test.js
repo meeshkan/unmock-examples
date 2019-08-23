@@ -12,3 +12,10 @@ test("hello endpoint returns correct JSON", async () => {
   expect(res.data.hello).toBeDefined();
   expect(typeof res.data.hello === "string").toBe(true);
 });
+
+test("setting a value for endpoint", async () => {
+  const helloService = unmock.services.hello;
+  helloService.state({ hello: "world" });
+  const res = await axios.get("https://api.unmock.io");
+  expect(res.data).toEqual({ hello: "world" });
+});
