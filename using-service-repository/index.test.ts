@@ -1,4 +1,4 @@
-import unmock, { sinon, Service, RequestResponseSpy } from "unmock-node";
+import unmock, { sinon, Service } from "unmock-node";
 import axios, { AxiosResponse } from "axios";
 
 function fetchPets() {
@@ -9,16 +9,14 @@ function fetchPets() {
 
 describe("Using unmock with petstore", () => {
   let petstore: Service;
-  let petstoreSpy: RequestResponseSpy;
   beforeAll(() => {
     petstore = unmock.on().services.petstore;
-    petstoreSpy = petstore.spy;
   });
 
   it("should mock the response with correct structure", async () => {
     const pets = await fetchPets();
     sinon.assert.calledOnce(petstore.spy);
-    const mockResponse = petstoreSpy.firstCall.returnValue;
+    const mockResponse = petstore.spy.firstCall.returnValue;
     expect(pets).toHaveLength(JSON.parse(mockResponse.body!).length);
   });
   afterAll(() => {
