@@ -1,8 +1,8 @@
 // hello.test.js
-const unmock = require("unmock-core").default;
+const unmock = require("unmock").default;
 const {
   sinon: { assert, match },
-} = require("unmock-core");
+} = require("unmock");
 
 const axios = require("axios");
 
