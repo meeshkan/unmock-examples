@@ -46,9 +46,7 @@ describe("hello endpoint", () => {
 
   test("should have handled response correctly", async () => {
     const responseBody = await fetchDataFromService();
-    const firstCallReturnValue = helloService.spy.firstCall.returnValue;
-    expect(responseBody.hello).toEqual(
-      JSON.parse(firstCallReturnValue.body).hello
-    );
+    const unmockResponseBody = helloService.spy.getResponseBody();
+    expect(responseBody.hello).toEqual(JSON.parse(unmockResponseBody).hello);
   });
 });
