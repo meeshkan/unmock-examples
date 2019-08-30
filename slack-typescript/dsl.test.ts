@@ -1,6 +1,6 @@
 // Test unmock DSL with slack
 import axios from "axios";
-import unmock, { Service } from "unmock-node";
+import unmock, { Service } from "unmock";
 
 let slack: Service;
 
