@@ -1,6 +1,6 @@
 // hello.test.js
-const unmock = require("unmock").default;
 const {
+  default: unmock,
   sinon: { assert, match },
 } = require("unmock");
 
