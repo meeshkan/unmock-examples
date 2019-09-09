@@ -32,7 +32,7 @@ run_tests () {
     run_test () {
         # To try and run in older versions of Node.js
         yarn --ignore-engines
-        yarn upgrade unmock-node -D --ignore-engines
+        yarn upgrade unmock -D --ignore-engines
         yarn test
     }
 
@@ -42,7 +42,7 @@ run_tests () {
 upgrade_unmocks () {
     upgrade () {
         yarn
-        yarn add unmock-node -D
+        yarn add unmock -D
     }
     loop_directories upgrade $1
 }

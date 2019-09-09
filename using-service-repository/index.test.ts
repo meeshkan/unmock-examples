@@ -1,4 +1,4 @@
-import unmock, { sinon, Service } from "unmock-node";
+import unmock, { sinon, Service } from "unmock";
 import axios, { AxiosResponse } from "axios";
 
 function fetchPets() {

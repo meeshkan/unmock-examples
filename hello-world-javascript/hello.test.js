@@ -1,8 +1,9 @@
 // hello.test.js
-const unmock = require("unmock-node").default;
 const {
+  default: unmock,
   sinon: { assert, match },
-} = require("unmock-node");
+} = require("unmock");
+
 const axios = require("axios");
 
 function fetchDataFromService() {
@@ -40,14 +41,12 @@ describe("hello endpoint", () => {
   test("should have made correct request", async () => {
     await fetchDataFromService();
     assert.calledOnce(helloService.spy);
-    assert.calledWith(helloService.spy, match({ method: "GET", path: "/" }));
+    assert.calledWith(helloService.spy, match({ method: "get", path: "/" }));
   });
 
   test("should have handled response correctly", async () => {
     const responseBody = await fetchDataFromService();
-    const firstCallReturnValue = helloService.spy.firstCall.returnValue;
-    expect(responseBody.hello).toEqual(
-      JSON.parse(firstCallReturnValue.body).hello
-    );
+    const unmockResponseBody = helloService.spy.getResponseBody();
+    expect(responseBody.hello).toEqual(JSON.parse(unmockResponseBody).hello);
   });
 });
