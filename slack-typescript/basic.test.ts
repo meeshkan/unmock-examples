@@ -30,45 +30,52 @@ const slackApi = {
   },
 };
 
-test("I can list some fake channels", async () => {
-  const data = await slackApi.channelsList();
-  expect(data.ok).toBeDefined();
-  if (data.ok === false) {
-    expect(data.error).toBeDefined();
-    expect(typeof data.error).toBe("string");
-  } else {
-    // There are some channels indeed
-    expect(data.channels.length).toBeGreaterThan(0);
-    // And the channels might have members too!
-    expect(
-      data.channels.every(channel => channel.members.length >= 0)
-    ).toBeTruthy();
-  }
+describe("Using unmock without state", () => {
+  test("returns data from schema", async () => {
+    const data = await slackApi.channelsList();
+    expect(data.ok).toBeDefined();
+    if (data.ok === false) {
+      expect(data.error).toBeDefined();
+      expect(typeof data.error).toBe("string");
+    } else {
+      // There are some channels indeed
+      expect(data.channels.length).toBeGreaterThan(0);
+      // And the channels might have members too!
+      expect(
+        data.channels.every(channel => channel.members.length >= 0)
+      ).toBeTruthy();
+    }
+  });
 });
 
-test("I can force an error on all responses", async () => {
-  slack.state({ ok: false });
-  const channelsList = await slackApi.channelsList();
-  expect(channelsList.ok).toBeFalsy();
-  expect(typeof channelsList.error).toBe("string");
-  const channelsInfo = await slackApi.channelsInfo();
-  expect(channelsInfo.ok).toBeFalsy();
-  expect(typeof channelsInfo.error).toBe("string");
-});
+describe("Using unmock with state", () => {
+  test("I can force an error on all responses", async () => {
+    slack.state({ ok: false });
+    const channelsList = await slackApi.channelsList();
+    expect(channelsList.ok).toBeFalsy();
+    expect(typeof channelsList.error).toBe("string");
+    const channelsInfo = await slackApi.channelsInfo();
+    expect(channelsInfo.ok).toBeFalsy();
+    expect(typeof channelsInfo.error).toBe("string");
+  });
 
-test("I can set force a response for specific endpoints", async () => {
-  slack.state("/channels.list", { ok: false });
-  slack.state("/channels.info", { ok: true });
-  const channelsList = await slackApi.channelsList();
-  expect(channelsList.ok).toBeFalsy();
-  expect(typeof channelsList.error).toBe("string");
-  const channelsInfo = await slackApi.channelsInfo();
-  expect(channelsInfo.ok).toBeTruthy();
-});
+  test("I can set force a response for specific endpoints", async () => {
+    slack.state("/channels.list", { ok: false });
+    slack.state("/channels.info", { ok: true });
+    const channelsList = await slackApi.channelsList();
+    expect(channelsList.ok).toBeFalsy();
+    expect(typeof channelsList.error).toBe("string");
+    const channelsInfo = await slackApi.channelsInfo();
+    expect(channelsInfo.ok).toBeTruthy();
+  });
 
-test("I can also set a specific method", async () => {
-  slack.state.post("/channels.create", { ok: true, channel: { name: "foo" } }); // will throw if we try e.g. `slack.get("/channels.create" ...)`
-  const channelsCreateResponse = await slackApi.channelsCreate();
-  expect(channelsCreateResponse.ok).toBeTruthy();
-  expect(channelsCreateResponse.channel.name).toEqual("foo");
+  test("I can also set a specific method", async () => {
+    slack.state.post("/channels.create", {
+      ok: true,
+      channel: { name: "foo" },
+    }); // will throw if we try e.g. `slack.get("/channels.create" ...)`
+    const channelsCreateResponse = await slackApi.channelsCreate();
+    expect(channelsCreateResponse.ok).toBeTruthy();
+    expect(channelsCreateResponse.channel.name).not.toEqual("foo");
+  });
 });
