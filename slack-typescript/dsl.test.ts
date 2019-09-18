@@ -1,6 +1,7 @@
 // Test unmock DSL with slack
 import axios from "axios";
-import unmock, { Service } from "unmock";
+import unmock, { Service, transform, Arr } from "unmock";
+const { responseBody, times, withCodes, compose } = transform;
 
 let slack: Service;
 
@@ -12,7 +13,7 @@ afterAll(() => {
   unmock.off();
 });
 beforeEach(() => {
-  slack.state.reset();
+  slack.reset();
 });
 
 const postMessage = (message: string) =>
@@ -21,7 +22,7 @@ const postMessage = (message: string) =>
   });
 
 test("I can enforce a response code", async () => {
-  slack.state({ $code: 200 }); // All responses are 200 in `slack`, but this enforces a success operation (ok = true)
+  slack.state(withCodes(200)); // All responses are 200 in `slack`, but this enforces a success operation (ok = true)
   const resp = await postMessage("foo");
   expect(resp.status).toBe(200);
   expect(resp.data.ok).toBeTruthy();
@@ -30,7 +31,13 @@ test("I can enforce a response code", async () => {
 test("I can also force specific response for N times", async () => {
   // sync the response and request
   const text = "foo";
-  slack.state.post("/chat.postMessage", { message: { text }, $times: 3 });
+  slack.state(
+    withCodes(200),
+    times(3)(
+      responseBody({
+        path: "/chat.postMessage",
+        lens: ["message", "text"] })
+      .const(text)));
   // We set the message, which only exists with vallid response (ok = true), so it's implicitly set
   let resp = await postMessage(text);
   expect(resp.data.message.text).toEqual(text);
@@ -52,10 +59,18 @@ test("I can also force specific response for N times", async () => {
 
 test("I can determine how many users are in my channel", async () => {
   const nUsers = 23;
-  slack.state.get("/channels.list", {
-    channels: { members: { $size: nUsers } },
-    $times: 2,
-  });
+  slack.state(
+    withCodes(200),
+    times(2)(
+      compose(
+        responseBody({
+          path: "/channels.list",
+          lens: ["channels", Arr, "members"] })
+        .maxItems(nUsers),
+        responseBody({
+          path: "/channels.list",
+          lens: ["channels", Arr, "members"] })
+        .minItems(nUsers))));
 
   let resp = await axios.get("https://slack.com/api/channels.list");
   expect(
