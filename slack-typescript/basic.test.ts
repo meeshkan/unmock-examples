@@ -5,6 +5,8 @@ import unmock,
   Service,
   transform
 } from "unmock";
+import { ISerializedRequest } from "unmock-core/dist/interfaces";
+import { OpenAPIObject, Responses } from "loas3/dist/generated/full";
 
 const { responseBody, withCodes, withoutCodes, mapDefaultTo } = transform;
 
@@ -48,7 +50,7 @@ test("I can list some fake channels", async () => {
 });
 
 test("I can force an error on all responses", async () => {
-  slack.state(mapDefaultTo(200), withCodes(200), responseBody({ lens: ["ok"] }).const(false));
+  slack.state(mapDefaultTo(200, "channels.list"), withCodes(200), responseBody({ lens: ["ok"] }).const(false));
   const channelsList = await slackApi.channelsList();
   expect(channelsList.ok).toBeFalsy();
   expect(typeof channelsList.error).toBe("string");
