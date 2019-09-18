@@ -2,6 +2,8 @@
 const {
   default: unmock,
   sinon: { assert, match },
+  transform,
+  u
 } = require("unmock");
 
 const axios = require("axios");
@@ -9,6 +11,11 @@ const axios = require("axios");
 function fetchDataFromService() {
   return axios.get("https://api.unmock.io").then(res => res.data);
 }
+
+unmock
+  .nock("https://api.unmock.io", "hello")
+  .get("/")
+  .reply(200, { hello: u.string() });
 
 describe("hello endpoint", () => {
   let helloService;
@@ -33,7 +40,7 @@ describe("hello endpoint", () => {
   });
 
   test("should return given string for endpoint when setting state", async () => {
-    helloService.state({ hello: "world" });
+    helloService.state(transform.responseBody().const({ hello: "world" }));
     const responseBody = await fetchDataFromService();
     expect(responseBody).toEqual({ hello: "world" });
   });
