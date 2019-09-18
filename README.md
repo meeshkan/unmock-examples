@@ -9,9 +9,9 @@ Simple examples using [Unmock](https://unmock.io) with 3rd party APIs.
 [run.sh](./run.sh) can be used to run a script for all examples as follows:
 
 ```bash
-# Run tests in all directories
-./run.sh test [pattern]
+# Run tests for all directories or directories matching a pattern
+./run.sh test [dir-name-pattern]
 
-# Upgrade unmock-node in all directories
-./run.sh upgrade [pattern]
+# Upgrade Unmock for all directories or directories matching a pattern
+./run.sh upgrade [dir-name-pattern]
 ```
