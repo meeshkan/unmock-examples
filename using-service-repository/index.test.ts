@@ -1,6 +1,6 @@
-import unmock, { sinon, Service, transformer } from "unmock";
+import unmock, { sinon, Service, transform } from "unmock";
 import axios, { AxiosResponse } from "axios";
-const { withCodes } = transformer;
+const { withCodes } = transform;
 
 function fetchPets() {
   return axios("http://petstore.swagger.io/v1/pets").then(
