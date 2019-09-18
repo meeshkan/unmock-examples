@@ -1,5 +1,0 @@
-servers:
-  - url: https://api.unmock.io
-paths:
-  /:
-    hello: foo

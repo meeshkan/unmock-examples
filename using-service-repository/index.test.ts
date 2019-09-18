@@ -1,5 +1,6 @@
-import unmock, { sinon, Service } from "unmock";
+import unmock, { sinon, Service, transform } from "unmock";
 import axios, { AxiosResponse } from "axios";
+const { withCodes } = transform;
 
 function fetchPets() {
   return axios("http://petstore.swagger.io/v1/pets").then(
@@ -14,6 +15,9 @@ describe("Using unmock with petstore", () => {
   });
 
   it("should mock the response with correct structure", async () => {
+    petstore.state(
+      withCodes(200)
+    );
     const pets = await fetchPets();
     sinon.assert.calledOnce(petstore.spy);
     const mockResponse = petstore.spy.firstCall.returnValue;
