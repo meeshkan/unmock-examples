@@ -32,13 +32,15 @@ beforeAll(() => {
 
 beforeEach(() => zodiac.reset());
 
+afterEach(() => zodiac.spy.resetHistory());
+
 test(
   "call to the horoscope service uses the username",
   runner(async () => {
     zodiac.state(withCodes(200));
     await getHoroscope("jane");
     const requestPath = zodiac.spy.getRequestPath();
-    expect(requestPath.split("/").slice(-1)).toBe(`jane`);
+    expect(requestPath).toBe(`/horoscope/jane`);
     zodiac.spy.resetHistory();
   })
 );
