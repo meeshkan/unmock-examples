@@ -50,12 +50,11 @@ test(
   runner(async () => {
     zodiac.state(withCodes(200));
     const horoscope = await getHoroscope("jane");
-    const spy = zodiac.spy;
-    const responseBody = JSON.parse(spy.getResponseBody());
+    const responseBody = JSON.parse(zodiac.spy.getResponseBody());
     expect(horoscope).toBe(
       `Here's your horoscope, ${responseBody.user} of the Great and Mighty sign ${responseBody.sign}. ${responseBody.horoscope}.`
     );
-    spy.resetHistory();
+    zodiac.spy.resetHistory();
   })
 );
 
@@ -64,10 +63,9 @@ test(
   runner(async () => {
     zodiac.state(withoutCodes(200));
     const horoscope = await getHoroscope("jane");
-    const spy = zodiac.spy;
-    if (spy.getResponseCode() !== 200) {
+    if (zodiac.spy.getResponseCode() !== 200) {
       expect(horoscope).toBe(`Sorry, your stars are not aligned today :-(`);
     }
-    spy.resetHistory();
+    zodiac.spy.resetHistory();
   })
 );
