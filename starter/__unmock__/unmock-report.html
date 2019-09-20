@@ -1,0 +1,220 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Unmock Report</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet" />
+    <style type="text/css">
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%; /* 10px of 16px */
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1.7;
+  color: #222;
+  padding: 3rem;
+  box-sizing: border-box;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header__text-box {
+  text-align: center;
+}
+
+.test-suite {
+  # border-style: dotted;
+  padding: 1rem;
+  margin-top: 3rem;
+}
+
+.test-suite__title {
+  background-color: #eee;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+}
+
+.test-suite__title-filename {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: auto;
+}
+
+.test-suite__title-summary {
+  font-size: 2rem;
+  margin: auto;
+}
+
+.test-suite__results {
+  # border-style: solid;
+}
+
+.test-suite--success {
+  # background-color: #77dd77;
+}
+
+.test-suite--failure {
+  # background-color: #ff6961;
+}
+
+.test-suite__results--success {
+  background-color: #77dd77;
+}
+
+.test-suite__results--failure {
+  background-color: #ff6961;
+}
+
+.test {
+  border-style: solid;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 2rem;
+}
+
+.test__title {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.test--success {
+  border-color: #228B22;
+  background-color: #77dd77;
+}
+
+.test--failure {
+  border-color: #8b0000;
+  background-color: #ff6961;
+}
+
+.calls {
+  background-color: #eee;
+  border-color: black;
+  border-style: solid;
+  border-radius: 2rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.calls__title {
+  font-size: 2rem;
+  margin: 0 auto 1rem auto;
+}
+
+.call {
+  border-color: black;
+  border-style: solid;
+  background-color: white;
+  padding: 1rem;
+  display: flex;
+  margin-bottom: 1rem;
+  flex-direction: row;
+}
+
+.call:last-child {
+  margin-bottom: 0rem;
+}
+
+.call__request {
+  flex: 1 1 0px;
+  # border-style: solid;
+  # border-radius: 2rem;
+  padding: 1rem;
+}
+
+.call__response {
+  flex: 1 1 0px;
+  # border-style: solid;
+  # border-radius: 2rem;
+  padding: 1rem;
+}
+
+.call__request-title {
+  font-size: 2rem;
+}
+
+.call__response-title {
+  font-size: 2rem;
+}
+
+.call__body {
+  width: 100%;
+}
+
+.test-suite-input {
+  display: none;
+}
+
+.test-suite {
+  display: none;
+  padding: 2rem;
+}
+
+.test-suite-label {
+  display: inline-block;
+  border-radius: 2rem;
+  padding: 1rem 2rem;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  opacity: 0.7;
+}
+
+.test-suite-label__filename {
+  float: left;
+}
+
+.test-suite-label__summary {
+  float: right;
+}
+
+.test-suite-label--success {
+  background-color: #77dd77;
+}
+
+.test-suite-label--failure {
+  background-color: #ff6961;
+}
+
+.test-results-container {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+fieldset {
+  border-style: none;
+}
+
+</style>
+    <style type="text/css">#box--Users-kimmo-git-meeshkan-unmock-examples-starter-index-test-ts:checked~.test-suite-label--Users-kimmo-git-meeshkan-unmock-examples-starter-index-test-ts {
+    opacity: 1;
+    }
+
+    /* Display test suite when corresponding box is checked */
+    #box--Users-kimmo-git-meeshkan-unmock-examples-starter-index-test-ts:checked~.test-suite--Users-kimmo-git-meeshkan-unmock-examples-starter-index-test-ts {
+    display: block;
+    }
+</style>
+  </head>
+  <body>
+    <div class="report"><div class="header"><div class="header__text-box"><header><h1 class="header">Unmock Jest report</h1></header><div class="timestamp">9/20/2019, 5:15:45 PM</div><div class="metadata">3 tests -- 3 passed / 0 failed / 0 pending</div></div></div><fieldset><div class="test-results-container"><input type="radio" id="box--Users-kimmo-git-meeshkan-unmock-examples-starter-index-test-ts" class="test-suite-input" name="content" value="box--Users-kimmo-git-meeshkan-unmock-examples-starter-index-test-ts" checked=""/><label for="box--Users-kimmo-git-meeshkan-unmock-examples-starter-index-test-ts" class="test-suite-label test-suite-label--Users-kimmo-git-meeshkan-unmock-examples-starter-index-test-ts test-suite-label--success" id="feature-label"><span class="test-suite-label__filename">index.test.ts</span><span class="test-suite-label__summary">Passing: 3, failing: 0, HTTP calls: 60</span></label><div class="test-suite test-suite--Users-kimmo-git-meeshkan-unmock-examples-starter-index-test-ts"><div class=""><div class="test-suite__title"><div class="test-suite__title-filename">index.test.ts</div><div class="test-suite__title-summary">Passing: 3, failing: 0, HTTP calls: 60</div></div><div class="test test--success"><div class="test__title">call to the horoscope service uses the username</div><div class="calls"><div class="calls__title">20 HTTP request(s)</div><div class="call"><div class="call__request"><div class="call__request-title">Request</div><p>Operation: GET https://zodiac.com/horoscope/jane</p><p>Hostname: zodiac.com</p><p>Path: /horoscope/jane</p><p>Protocol: https</p></div><div class="call__response"><div class="call__response-title">Response</div><p>Status: 200</p><p>Body:<div class="call__response-body"><textarea rows="5" class="call__body" readonly="">{&quot;id&quot;:46358584,&quot;name&quot;:&quot;laborum Ut esse&quot;,&quot;sign&quot;:&quot;&quot;,&quot;ascendant&quot;:&quot;non fugiat&quot;,&quot;type&quot;:&quot;horoscope&quot;}</textarea></div></p></div></div><div class="call"><div class="call__request"><div class="call__request-title">Request</div><p>Operation: GET https://zodiac.com/horoscope/jane</p><p>Hostname: zodiac.com</p><p>Path: /horoscope/jane</p><p>Protocol: https</p></div><div class="call__response"><div class="call__response-title">Response</div><p>Status: 200</p><p>Body:<div class="call__response-body"><textarea rows="5" class="call__body" readonly="">{&quot;id&quot;:49604792,&quot;name&quot;:&quot;ut&quot;,&quot;sign&quot;:&quot;dolor consectetur&quot;,&quot;ascendant&quot;:&quot;sit labore aliqua&quot;,&quot;type&quot;:&quot;horoscope&quot;}</textarea></div></p></div></div><div class="call"><div class="call__request"><div class="call__request-title">Request</div><p>Operation: GET https://zodiac.com/horoscope/jane</p><p>Hostname: zodiac.com</p><p>Path: /horoscope/jane</p><p>Protocol: https</p></div><div class="call__response"><div class="call__response-title">Response</div><p>Status: 200</p><p>Body:<div class="call__response-body"><textarea rows="5" class="call__body" readonly="">{&quot;id&quot;:80614890,&quot;name&quot;:&quot;commodo laborum Lorem Ut occaecat&quot;,&quot;sign&quot;:&quot;eiusmod&quot;,&quot;ascendant&quot;:&quot;mollit&quot;,&quot;type&quot;:&quot;horoscope&quot;}</textarea></div></p></div></div><div class="call"><div class="call__request"><div class="call__request-title">Request</div><p>Operation: GET https://zodiac.com/horoscope/jane</p><p>Hostname: zodiac.com</p><p>Path: /horoscope/jane</p><p>Protocol: https</p></div><div class="call__response"><div class="call__response-title">Response</div><p>Status: 200</p><p>Body:<div class="call__response-body"><textarea rows="5" class="call__body" readonly="">{&quot;id&quot;:-69213367,&quot;name&quot;:&quot;velit mollit eiusmod elit labore&quot;,&quot;sign&quot;:&quot;magna non exercitation nisi&quot;,&quot;ascendant&quot;:&quot;do consequat non&quot;,&quot;type&quot;:&quot;horoscope&quot;}</textarea></div></p></div></div><div class="call"><div class="call__request"><div class="call__request-title">Request</div><p>Operation: GET https://zodiac.com/horoscope/jane</p><p>Hostname: zodiac.com</p><p>Path: /horoscope/jane</p><p>Protocol: https</p></div><div class="call__response"><div class="call__response-title">Response</div><p>Status: 200</p><p>Body:<div class="call__response-body"><textarea rows="5" class="call__body" readonly="">{&quot;id&quot;:83474726,&quot;name&quot;:&quot;officia id&quot;,&quot;sign&quot;:&quot;laboris aute ipsum elit veniam&quot;,&quot;ascendant&quot;:&quot;sed deserunt&quot;,&quot;type&quot;:&quot;horoscope&quot;}</textarea></div></p></div></div><div class="call"><div class="call__request"><div class="call__request-title">Request</div><p>Operation: GET https://zodiac.com/horoscope/jane</p><p>Hostname: zodiac.com</p><p>Path: /horoscope/jane</p><p>Protocol: https</p></div><div class="call__response"><div class="call__response-title">Response</div><p>Status: 200</p><p>Body:<div class="call__response-body"><textarea rows="5" class="call__body" readonly="">{&quot;id&quot;:58848407,&quot;name&quot;:&quot;officia ipsum&quot;,&quot;sign&quot;:&quot;labore deserunt enim aliqu&quot;,&quot;ascendant&quot;:&quot;consequat&quot;,&quot;type&quot;:&quot;horoscope&quot;}</textarea></div></p></div></div><div class="call"><div class="call__request"><div class="call__request-title">Request</div><p>Operation: GET https://zodiac.com/horoscope/jane</p><p>Hostname: zodiac.com</p><p>Path: /horoscope/jane</p><p>Protocol: https</p></div><div class="call__response"><div class="call__response-title">Response</div><p>Status: 200</p><p>Body:<div class="call__response-body"><textarea rows="5" class="call__body" readonly="">{&quot;id&quot;:33192787,&quot;name&quot;:&quot;Lorem eu ipsum cillum&quot;,&quot;sign&quot;:&quot;ut et consectetur Ut proident&quot;,&quot;ascendant&quot;:&quot;elit&quot;,&quot;type&quot;:&quot;horoscope&quot;}</textarea></div></p></div></div><div class="call"><div class="call__request"><div class="call__request-title">Request</div><p>Operation: GET https://zodiac.com/horoscope/jane</p><p>Hostname: zodiac.com</p><p>Path: /horoscope/jane</p><p>Protocol: https</p></div><div class="call__response"><div class="call__response-title">Response</div><p>Status: 200</p><p>Body:<div class="call__response-body"><textarea rows="5" class="call__body" readonly="">{&quot;id&quot;:53488341,&quot;name&quot;:&quot;aliquip&quot;,&quot;sign&quot;:&quot;elit dolor deserunt&quot;,&quot;ascendant&quot;:&quot;ad laborum&quot;,&quot;type&quot;:&quot;horoscope&quot;}</textarea></div></p></div></div><div class="call"><div class="call__request"><div class="call__request-title">Request</div><p>Operation: GET https://zodiac.com/horoscope/jane</p><p>Hostname: zodiac.com</p><p>Path: /horoscope/jane</p><p>Protocol: https</p></div><div class="call__response"><div class="call__response-title">Response</div><p>Status: 200</p><p>Body:<div class="call__response-body"><textarea rows="5" class="call__body" readonly="">{&quot;id&quot;:-98387753,&quot;name&quot;:&quot;ea aliquip aliqua&quot;,&quot;sign&quot;:&quot;fugiat mollit&quot;,&quot;ascendant&quot;:&quot;in dolor ut&quot;,&quot;type&quot;:&quot;horoscope&quot;}</textarea></div></p></div></div><div class="call"><div class="call__request"><div class="call__request-title">Request</div><p>Operation: GET https://zodiac.com/horoscope/jane</p><p>Hostname: zodiac.com</p><p>Path: /horoscope/jane</p><p>Protocol: https</p></div><div class="call__response"><div class="call__response-title">Response</div><p>Status: 200</p><p>Body:<div class="call__response-body"><textarea rows="5" class="call__body" readonly="">{&quot;id&quot;:-20722059,&quot;name&quot;:&quot;tempor laboris in do eiusmod&quot;,&quot;sign&quot;:&quot;nostrud reprehenderit&quot;,&quot;ascendant&quot;:&quot;laborum sed ipsum&quot;,&quot;type&quot;:&quot;horoscope&quot;}</textarea></div></p></div></div><div class="call"><div class="call__request"><div class="call__request-title">Request</div><p>Operation: GET https://zodiac.com/horoscope/jane</p><p>Hostname: zodiac.com</p><p>Path: /horoscope/jane</p><p>Protocol: https</p></div><div class="call__response"><div class="call__response-title">Response</div><p>Status: 200</p><p>Body:<div class="call__response-body"><textarea rows="5" class="call__body" readonly="">{&quot;id&quot;:17184175,&quot;name&quot;:&quot;ut Ut tempor in eiusmod&quot;,&quot;sign&quot;:&quot;adipisicing labore aliqua sunt culpa&quot;,&quot;ascendant&quot;:&quot;nostrud&quot;,&quot;type&quot;:&quot;horoscope&quot;}</textarea></div></p></div></div><div class="call"><div class="call__request"><div class="call__request-title">Request</div><p>Operation: GET https://zodiac.com/horoscope/jane</p><p>Hostname: zodiac.com</p><p>Path: /horoscope/jane</p><p>Protocol: https</p></div><div class="call__response"><div class="call__response-title">Response</div><p>Status: 200</p><p>Body:<div class="call__response-body"><textarea rows="5" class="call__body" readonly="">{&quot;id&quot;:49604792,&quot;name&quot;:&quot;ut&quot;,&quot;sign&quot;:&quot;dolor consectetur&quot;,&quot;ascendant&quot;:&quot;sit labore aliqua&quot;,&quot;type&quot;:&quot;horoscope&quot;}</textarea></div></p></div></div><div class="call"><div class="call__request"><div class="call__request-title">Request</div><p>Operation: GET https://zodiac.com/horoscope/jane</p><p>Hostname: zodiac.com</p><p>Path: /horoscope/jane</p><p>Protocol: https</p></div><div class="call__response"><div class="call__response-title">Response</div><p>Status: 200</p><p>Body:<div class="call__response-body"><textarea rows="5" class="call__body" readonly="">{&quot;id&quot;:-73109404,&quot;name&quot;:&quot;Duis laborum pariatur dolor&quot;,&quot;sign&quot;:&quot;dolore non&quot;,&quot;ascendant&quot;:&quot;laborum sed&quot;,&quot;type&quot;:&quot;horoscope&quot;}</textarea></div></p></div></div><div class="call"><div class="call__request"><div class="call__request-title">Request</div><p>Operation: GET https://zodiac.com/horoscope/jane</p><p>Hostname: zodiac.com</p><p>Path: /horoscope/jane</p><p>Protocol: https</p></div><div class="call__response"><div class="call__response-title">Response</div><p>Status: 200</p><p>Body:<div class="call__response-body"><textarea rows="5" class="call__body" readonly="">{&quot;id&quot;:63990912,&quot;name&quot;:&quot;proident consequat&quot;,&quot;sign&quot;:&quot;sed veniam cupidatat cillum&quot;,&quot;ascendant&quot;:&quot;ad&quot;,&quot;type&quot;:&quot;horoscope&quot;}</textarea></div></p></div></div><div class="call"><div class="call__request"><div class="call__request-title">Request</div><p>Operation: GET https://zodiac.com/horoscope/jane</p><p>Hostname: zodiac.com</p><p>Path: /horoscope/jane</p><p>Protocol: https</p></div><div class="call__response"><div class="call__response-title">Response</div><p>Status: 200</p><p>Body:<div class="call__response-body"><textarea rows="5" class="call__body" readonly="">{&quot;id&quot;:-91949164,&quot;name&quot;:&quot;cillum laborum est in ut&quot;,&quot;sign&quot;:&quot;sit occaecat Ut enim tempor&quot;,&quot;ascendant&quot;:&quot;ipsum in non ea sint&quot;,&quot;type&quot;:&quot;horoscope&quot;}</textarea></div></p></div></div><div class="call"><div class="call__request"><div class="call__request-title">Request</div><p>Operation: GET https://zodiac.com/horoscope/jane</p><p>Hostname: zodiac.com</p><p>Path: /horoscope/jane</p><p>Protocol: https</p></div><div class="call__response"><div class="call__response-title">Response</div><p>Status: 200</p><p>Body:<div class="call__response-body"><textarea rows="5" class="call__body" readonly="">{&quot;id&quot;:1652237,&quot;name&quot;:&quot;cupidatat irure do culpa&quot;,&quot;sign&quot;:&quot;labore ut officia dolore&quot;,&quot;ascendant&quot;:&quot;aliquip esse&quot;,&quot;type&quot;:&quot;horoscope&quot;}</textarea></div></p></div></div><div class="call"><div class="call__request"><div class="call__request-title">Request</div><p>Operation: GET https://zodiac.com/horoscope/jane</p><p>Hostname: zodiac.com</p><p>Path: /horoscope/jane</p><p>Protocol: https</p></div><div class="call__response"><div class="call__response-title">Response</div><p>Status: 200</p><p>Body:<div class="call__response-body"><textarea rows="5" class="call__body" readonly="">{&quot;id&quot;:39522028,&quot;name&quot;:&quot;officia&quot;,&quot;sign&quot;:&quot;nostrud&quot;,&quot;ascendant&quot;:&quot;laboru&quot;,&quot;type&quot;:&quot;horoscope&quot;}</textarea></div></p></div></div><div class="call"><div class="call__request"><div class="call__request-title">Request</div><p>Operation: GET https://zodiac.com/horoscope/jane</p><p>Hostname: zodiac.com</p><p>Path: /horoscope/jane</p><p>Protocol: https</p></div><div class="call__response"><div class="call__response-title">Response</div><p>Status: 200</p><p>Body:<div class="call__response-body"><textarea rows="5" class="call__body" readonly="">{&quot;id&quot;:35645125,&quot;name&quot;:&quot;ipsum sunt ea aute minim&quot;,&quot;sign&quot;:&quot;laboris pariatur&quot;,&quot;ascendant&quot;:&quot;elit&quot;,&quot;type&quot;:&quot;horoscope&quot;}</textarea></div></p></div></div><div class="call"><div class="call__request"><div class="call__request-title">Request</div><p>Operation: GET https://zodiac.com/horoscope/jane</p><p>Hostname: zodiac.com</p><p>Path: /horoscope/jane</p><p>Protocol: https</p></div><div class="call__response"><div class="call__response-title">Response</div><p>Status: 200</p><p>Body:<div class="call__response-body"><textarea rows="5" class="call__body" readonly="">{&quot;id&quot;:-87485515,&quot;name&quot;:&quot;enim fugiat anim&quot;,&quot;sign&quot;:&quot;velit dolor&quot;,&quot;ascendant&quot;:&quot;officia&quot;,&quot;type&quot;:&quot;horoscope&quot;}</textarea></div></p></div></div><div class="call"><div class="call__request"><div class="call__request-title">Request</div><p>Operation: GET https://zodiac.com/horoscope/jane</p><p>Hostname: zodiac.com</p><p>Path: /horoscope/jane</p><p>Protocol: https</p></div><div class="call__response"><div class="call__response-title">Response</div><p>Status: 200</p><p>Body:<div class="call__response-body"><textarea rows="5" class="call__body" readonly="">{&quot;id&quot;:28184470,&quot;name&quot;:&quot;proident commodo in&quot;,&quot;sign&quot;:&quot;Ut sunt&quot;,&quot;ascendant&quot;:&quot;eiusmod tempor nulla&quot;,&quot;type&quot;:&quot;horoscope&quot;}</textarea></div></p></div></div></div></div><div class="test test--success"><div class="test__title">horoscope does not result in unexpected error when resposne is 200</div><div class="calls"><div class="calls__title">20 HTTP request(s)</div><div class="call"><div class="call__request"><div class="call__request-title">Request</div><p>Operation: GET https://zodiac.com/horoscope/jane</p><p>Hostname: zodiac.com</p><p>Path: /horoscope/jane</p><p>Protocol: https</p></div><div class="call__response"><div class="call__response-title">Response</div><p>Status: 200</p><p>Body:<div class="call__response-body"><textarea rows="5" class="call__body" readonly="">{&quot;id&quot;:46358584,&quot;name&quot;:&quot;laborum Ut esse&quot;,&quot;sign&quot;:&quot;&quot;,&quot;ascendant&quot;:&quot;non fugiat&quot;,&quot;type&quot;:&quot;horoscope&quot;}</textarea></div></p></div></div><div class="call"><div class="call__request"><div class="call__request-title">Request</div><p>Operation: GET https://zodiac.com/horoscope/jane</p><p>Hostname: zodiac.com</p><p>Path: /horoscope/jane</p><p>Protocol: https</p></div><div class="call__response"><div class="call__response-title">Response</div><p>Status: 200</p><p>Body:<div class="call__response-body"><textarea rows="5" class="call__body" readonly="">{&quot;id&quot;:49604792,&quot;name&quot;:&quot;ut&quot;,&quot;sign&quot;:&quot;dolor consectetur&quot;,&quot;ascendant&quot;:&quot;sit labore aliqua&quot;,&quot;type&quot;:&quot;horoscope&quot;}</textarea></div></p></div></div><div class="call"><div class="call__request"><div class="call__request-title">Request</div><p>Operation: GET https://zodiac.com/horoscope/jane</p><p>Hostname: zodiac.com</p><p>Path: /horoscope/jane</p><p>Protocol: https</p></div><div class="call__response"><div class="call__response-title">Response</div><p>Status: 200</p><p>Body:<div class="call__response-body"><textarea rows="5" class="call__body" readonly="">{&quot;id&quot;:80614890,&quot;name&quot;:&quot;commodo laborum Lorem Ut occaecat&quot;,&quot;sign&quot;:&quot;eiusmod&quot;,&quot;ascendant&quot;:&quot;mollit&quot;,&quot;type&quot;:&quot;horoscope&quot;}</textarea></div></p></div></div><div class="call"><div class="call__request"><div class="call__request-title">Request</div><p>Operation: GET https://zodiac.com/horoscope/jane</p><p>Hostname: zodiac.com</p><p>Path: /horoscope/jane</p><p>Protocol: https</p></div><div class="call__response"><div class="call__response-title">Response</div><p>Status: 200</p><p>Body:<div class="call__response-body"><textarea rows="5" class="call__body" readonly="">{&quot;id&quot;:-69213367,&quot;name&quot;:&quot;velit mollit eiusmod elit labore&quot;,&quot;sign&quot;:&quot;magna non exercitation nisi&quot;,&quot;ascendant&quot;:&quot;do consequat non&quot;,&quot;type&quot;:&quot;horoscope&quot;}</textarea></div></p></div></div><div class="call"><div class="call__request"><div class="call__request-title">Request</div><p>Operation: GET https://zodiac.com/horoscope/jane</p><p>Hostname: zodiac.com</p><p>Path: /horoscope/jane</p><p>Protocol: https</p></div><div class="call__response"><div class="call__response-title">Response</div><p>Status: 200</p><p>Body:<div class="call__response-body"><textarea rows="5" class="call__body" readonly="">{&quot;id&quot;:83474726,&quot;name&quot;:&quot;officia id&quot;,&quot;sign&quot;:&quot;laboris aute ipsum elit veniam&quot;,&quot;ascendant&quot;:&quot;sed deserunt&quot;,&quot;type&quot;:&quot;horoscope&quot;}</textarea></div></p></div></div><div class="call"><div class="call__request"><div class="call__request-title">Request</div><p>Operation: GET https://zodiac.com/horoscope/jane</p><p>Hostname: zodiac.com</p><p>Path: /horoscope/jane</p><p>Protocol: https</p></div><div class="call__response"><div class="call__response-title">Response</div><p>Status: 200</p><p>Body:<div class="call__response-body"><textarea rows="5" class="call__body" readonly="">{&quot;id&quot;:58848407,&quot;name&quot;:&quot;officia ipsum&quot;,&quot;sign&quot;:&quot;labore deserunt enim aliqu&quot;,&quot;ascendant&quot;:&quot;consequat&quot;,&quot;type&quot;:&quot;horoscope&quot;}</textarea></div></p></div></div><div class="call"><div class="call__request"><div class="call__request-title">Request</div><p>Operation: GET https://zodiac.com/horoscope/jane</p><p>Hostname: zodiac.com</p><p>Path: /horoscope/jane</p><p>Protocol: https</p></div><div class="call__response"><div class="call__response-title">Response</div><p>Status: 200</p><p>Body:<div class="call__response-body"><textarea rows="5" class="call__body" readonly="">{&quot;id&quot;:33192787,&quot;name&quot;:&quot;Lorem eu ipsum cillum&quot;,&quot;sign&quot;:&quot;ut et consectetur Ut proident&quot;,&quot;ascendant&quot;:&quot;elit&quot;,&quot;type&quot;:&quot;horoscope&quot;}</textarea></div></p></div></div><div class="call"><div class="call__request"><div class="call__request-title">Request</div><p>Operation: GET https://zodiac.com/horoscope/jane</p><p>Hostname: zodiac.com</p><p>Path: /horoscope/jane</p><p>Protocol: https</p></div><div class="call__response"><div class="call__response-title">Response</div><p>Status: 200</p><p>Body:<div class="call__response-body"><textarea rows="5" class="call__body" readonly="">{&quot;id&quot;:53488341,&quot;name&quot;:&quot;aliquip&quot;,&quot;sign&quot;:&quot;elit dolor deserunt&quot;,&quot;ascendant&quot;:&quot;ad laborum&quot;,&quot;type&quot;:&quot;horoscope&quot;}</textarea></div></p></div></div><div class="call"><div class="call__request"><div class="call__request-title">Request</div><p>Operation: GET https://zodiac.com/horoscope/jane</p><p>Hostname: zodiac.com</p><p>Path: /horoscope/jane</p><p>Protocol: https</p></div><div class="call__response"><div class="call__response-title">Response</div><p>Status: 200</p><p>Body:<div class="call__response-body"><textarea rows="5" class="call__body" readonly="">{&quot;id&quot;:-98387753,&quot;name&quot;:&quot;ea aliquip aliqua&quot;,&quot;sign&quot;:&quot;fugiat mollit&quot;,&quot;ascendant&quot;:&quot;in dolor ut&quot;,&quot;type&quot;:&quot;horoscope&quot;}</textarea></div></p></div></div><div class="call"><div class="call__request"><div class="call__request-title">Request</div><p>Operation: GET https://zodiac.com/horoscope/jane</p><p>Hostname: zodiac.com</p><p>Path: /horoscope/jane</p><p>Protocol: https</p></div><div class="call__response"><div class="call__response-title">Response</div><p>Status: 200</p><p>Body:<div class="call__response-body"><textarea rows="5" class="call__body" readonly="">{&quot;id&quot;:-20722059,&quot;name&quot;:&quot;tempor laboris in do eiusmod&quot;,&quot;sign&quot;:&quot;nostrud reprehenderit&quot;,&quot;ascendant&quot;:&quot;laborum sed ipsum&quot;,&quot;type&quot;:&quot;horoscope&quot;}</textarea></div></p></div></div><div class="call"><div class="call__request"><div class="call__request-title">Request</div><p>Operation: GET https://zodiac.com/horoscope/jane</p><p>Hostname: zodiac.com</p><p>Path: /horoscope/jane</p><p>Protocol: https</p></div><div class="call__response"><div class="call__response-title">Response</div><p>Status: 200</p><p>Body:<div class="call__response-body"><textarea rows="5" class="call__body" readonly="">{&quot;id&quot;:17184175,&quot;name&quot;:&quot;ut Ut tempor in eiusmod&quot;,&quot;sign&quot;:&quot;adipisicing labore aliqua sunt culpa&quot;,&quot;ascendant&quot;:&quot;nostrud&quot;,&quot;type&quot;:&quot;horoscope&quot;}</textarea></div></p></div></div><div class="call"><div class="call__request"><div class="call__request-title">Request</div><p>Operation: GET https://zodiac.com/horoscope/jane</p><p>Hostname: zodiac.com</p><p>Path: /horoscope/jane</p><p>Protocol: https</p></div><div class="call__response"><div class="call__response-title">Response</div><p>Status: 200</p><p>Body:<div class="call__response-body"><textarea rows="5" class="call__body" readonly="">{&quot;id&quot;:49604792,&quot;name&quot;:&quot;ut&quot;,&quot;sign&quot;:&quot;dolor consectetur&quot;,&quot;ascendant&quot;:&quot;sit labore aliqua&quot;,&quot;type&quot;:&quot;horoscope&quot;}</textarea></div></p></div></div><div class="call"><div class="call__request"><div class="call__request-title">Request</div><p>Operation: GET https://zodiac.com/horoscope/jane</p><p>Hostname: zodiac.com</p><p>Path: /horoscope/jane</p><p>Protocol: https</p></div><div class="call__response"><div class="call__response-title">Response</div><p>Status: 200</p><p>Body:<div class="call__response-body"><textarea rows="5" class="call__body" readonly="">{&quot;id&quot;:-73109404,&quot;name&quot;:&quot;Duis laborum pariatur dolor&quot;,&quot;sign&quot;:&quot;dolore non&quot;,&quot;ascendant&quot;:&quot;laborum sed&quot;,&quot;type&quot;:&quot;horoscope&quot;}</textarea></div></p></div></div><div class="call"><div class="call__request"><div class="call__request-title">Request</div><p>Operation: GET https://zodiac.com/horoscope/jane</p><p>Hostname: zodiac.com</p><p>Path: /horoscope/jane</p><p>Protocol: https</p></div><div class="call__response"><div class="call__response-title">Response</div><p>Status: 200</p><p>Body:<div class="call__response-body"><textarea rows="5" class="call__body" readonly="">{&quot;id&quot;:63990912,&quot;name&quot;:&quot;proident consequat&quot;,&quot;sign&quot;:&quot;sed veniam cupidatat cillum&quot;,&quot;ascendant&quot;:&quot;ad&quot;,&quot;type&quot;:&quot;horoscope&quot;}</textarea></div></p></div></div><div class="call"><div class="call__request"><div class="call__request-title">Request</div><p>Operation: GET https://zodiac.com/horoscope/jane</p><p>Hostname: zodiac.com</p><p>Path: /horoscope/jane</p><p>Protocol: https</p></div><div class="call__response"><div class="call__response-title">Response</div><p>Status: 200</p><p>Body:<div class="call__response-body"><textarea rows="5" class="call__body" readonly="">{&quot;id&quot;:-91949164,&quot;name&quot;:&quot;cillum laborum est in ut&quot;,&quot;sign&quot;:&quot;sit occaecat Ut enim tempor&quot;,&quot;ascendant&quot;:&quot;ipsum in non ea sint&quot;,&quot;type&quot;:&quot;horoscope&quot;}</textarea></div></p></div></div><div class="call"><div class="call__request"><div class="call__request-title">Request</div><p>Operation: GET https://zodiac.com/horoscope/jane</p><p>Hostname: zodiac.com</p><p>Path: /horoscope/jane</p><p>Protocol: https</p></div><div class="call__response"><div class="call__response-title">Response</div><p>Status: 200</p><p>Body:<div class="call__response-body"><textarea rows="5" class="call__body" readonly="">{&quot;id&quot;:1652237,&quot;name&quot;:&quot;cupidatat irure do culpa&quot;,&quot;sign&quot;:&quot;labore ut officia dolore&quot;,&quot;ascendant&quot;:&quot;aliquip esse&quot;,&quot;type&quot;:&quot;horoscope&quot;}</textarea></div></p></div></div><div class="call"><div class="call__request"><div class="call__request-title">Request</div><p>Operation: GET https://zodiac.com/horoscope/jane</p><p>Hostname: zodiac.com</p><p>Path: /horoscope/jane</p><p>Protocol: https</p></div><div class="call__response"><div class="call__response-title">Response</div><p>Status: 200</p><p>Body:<div class="call__response-body"><textarea rows="5" class="call__body" readonly="">{&quot;id&quot;:39522028,&quot;name&quot;:&quot;officia&quot;,&quot;sign&quot;:&quot;nostrud&quot;,&quot;ascendant&quot;:&quot;laboru&quot;,&quot;type&quot;:&quot;horoscope&quot;}</textarea></div></p></div></div><div class="call"><div class="call__request"><div class="call__request-title">Request</div><p>Operation: GET https://zodiac.com/horoscope/jane</p><p>Hostname: zodiac.com</p><p>Path: /horoscope/jane</p><p>Protocol: https</p></div><div class="call__response"><div class="call__response-title">Response</div><p>Status: 200</p><p>Body:<div class="call__response-body"><textarea rows="5" class="call__body" readonly="">{&quot;id&quot;:35645125,&quot;name&quot;:&quot;ipsum sunt ea aute minim&quot;,&quot;sign&quot;:&quot;laboris pariatur&quot;,&quot;ascendant&quot;:&quot;elit&quot;,&quot;type&quot;:&quot;horoscope&quot;}</textarea></div></p></div></div><div class="call"><div class="call__request"><div class="call__request-title">Request</div><p>Operation: GET https://zodiac.com/horoscope/jane</p><p>Hostname: zodiac.com</p><p>Path: /horoscope/jane</p><p>Protocol: https</p></div><div class="call__response"><div class="call__response-title">Response</div><p>Status: 200</p><p>Body:<div class="call__response-body"><textarea rows="5" class="call__body" readonly="">{&quot;id&quot;:-87485515,&quot;name&quot;:&quot;enim fugiat anim&quot;,&quot;sign&quot;:&quot;velit dolor&quot;,&quot;ascendant&quot;:&quot;officia&quot;,&quot;type&quot;:&quot;horoscope&quot;}</textarea></div></p></div></div><div class="call"><div class="call__request"><div class="call__request-title">Request</div><p>Operation: GET https://zodiac.com/horoscope/jane</p><p>Hostname: zodiac.com</p><p>Path: /horoscope/jane</p><p>Protocol: https</p></div><div class="call__response"><div class="call__response-title">Response</div><p>Status: 200</p><p>Body:<div class="call__response-body"><textarea rows="5" class="call__body" readonly="">{&quot;id&quot;:28184470,&quot;name&quot;:&quot;proident commodo in&quot;,&quot;sign&quot;:&quot;Ut sunt&quot;,&quot;ascendant&quot;:&quot;eiusmod tempor nulla&quot;,&quot;type&quot;:&quot;horoscope&quot;}</textarea></div></p></div></div></div></div><div class="test test--success"><div class="test__title">when the response is not 200, the only outcome is an error</div><div class="calls"><div class="calls__title">20 HTTP request(s)</div><div class="call"><div class="call__request"><div class="call__request-title">Request</div><p>Operation: GET https://zodiac.com/horoscope/jane</p><p>Hostname: zodiac.com</p><p>Path: /horoscope/jane</p><p>Protocol: https</p></div><div class="call__response"><div class="call__response-title">Response</div><p>Status: 404</p><p>Body:<div class="call__response-body"><textarea rows="5" class="call__body" readonly="">{&quot;message&quot;:&quot;Not authorized.&quot;}</textarea></div></p></div></div><div class="call"><div class="call__request"><div class="call__request-title">Request</div><p>Operation: GET https://zodiac.com/horoscope/jane</p><p>Hostname: zodiac.com</p><p>Path: /horoscope/jane</p><p>Protocol: https</p></div><div class="call__response"><div class="call__response-title">Response</div><p>Status: 404</p><p>Body:<div class="call__response-body"><textarea rows="5" class="call__body" readonly="">{&quot;message&quot;:&quot;Not authorized.&quot;}</textarea></div></p></div></div><div class="call"><div class="call__request"><div class="call__request-title">Request</div><p>Operation: GET https://zodiac.com/horoscope/jane</p><p>Hostname: zodiac.com</p><p>Path: /horoscope/jane</p><p>Protocol: https</p></div><div class="call__response"><div class="call__response-title">Response</div><p>Status: 404</p><p>Body:<div class="call__response-body"><textarea rows="5" class="call__body" readonly="">{&quot;message&quot;:&quot;Not authorized.&quot;}</textarea></div></p></div></div><div class="call"><div class="call__request"><div class="call__request-title">Request</div><p>Operation: GET https://zodiac.com/horoscope/jane</p><p>Hostname: zodiac.com</p><p>Path: /horoscope/jane</p><p>Protocol: https</p></div><div class="call__response"><div class="call__response-title">Response</div><p>Status: 404</p><p>Body:<div class="call__response-body"><textarea rows="5" class="call__body" readonly="">{&quot;message&quot;:&quot;Not authorized.&quot;}</textarea></div></p></div></div><div class="call"><div class="call__request"><div class="call__request-title">Request</div><p>Operation: GET https://zodiac.com/horoscope/jane</p><p>Hostname: zodiac.com</p><p>Path: /horoscope/jane</p><p>Protocol: https</p></div><div class="call__response"><div class="call__response-title">Response</div><p>Status: 404</p><p>Body:<div class="call__response-body"><textarea rows="5" class="call__body" readonly="">{&quot;message&quot;:&quot;Not authorized.&quot;}</textarea></div></p></div></div><div class="call"><div class="call__request"><div class="call__request-title">Request</div><p>Operation: GET https://zodiac.com/horoscope/jane</p><p>Hostname: zodiac.com</p><p>Path: /horoscope/jane</p><p>Protocol: https</p></div><div class="call__response"><div class="call__response-title">Response</div><p>Status: 404</p><p>Body:<div class="call__response-body"><textarea rows="5" class="call__body" readonly="">{&quot;message&quot;:&quot;Not authorized.&quot;}</textarea></div></p></div></div><div class="call"><div class="call__request"><div class="call__request-title">Request</div><p>Operation: GET https://zodiac.com/horoscope/jane</p><p>Hostname: zodiac.com</p><p>Path: /horoscope/jane</p><p>Protocol: https</p></div><div class="call__response"><div class="call__response-title">Response</div><p>Status: 404</p><p>Body:<div class="call__response-body"><textarea rows="5" class="call__body" readonly="">{&quot;message&quot;:&quot;Not authorized.&quot;}</textarea></div></p></div></div><div class="call"><div class="call__request"><div class="call__request-title">Request</div><p>Operation: GET https://zodiac.com/horoscope/jane</p><p>Hostname: zodiac.com</p><p>Path: /horoscope/jane</p><p>Protocol: https</p></div><div class="call__response"><div class="call__response-title">Response</div><p>Status: 404</p><p>Body:<div class="call__response-body"><textarea rows="5" class="call__body" readonly="">{&quot;message&quot;:&quot;Not authorized.&quot;}</textarea></div></p></div></div><div class="call"><div class="call__request"><div class="call__request-title">Request</div><p>Operation: GET https://zodiac.com/horoscope/jane</p><p>Hostname: zodiac.com</p><p>Path: /horoscope/jane</p><p>Protocol: https</p></div><div class="call__response"><div class="call__response-title">Response</div><p>Status: 404</p><p>Body:<div class="call__response-body"><textarea rows="5" class="call__body" readonly="">{&quot;message&quot;:&quot;Not authorized.&quot;}</textarea></div></p></div></div><div class="call"><div class="call__request"><div class="call__request-title">Request</div><p>Operation: GET https://zodiac.com/horoscope/jane</p><p>Hostname: zodiac.com</p><p>Path: /horoscope/jane</p><p>Protocol: https</p></div><div class="call__response"><div class="call__response-title">Response</div><p>Status: 404</p><p>Body:<div class="call__response-body"><textarea rows="5" class="call__body" readonly="">{&quot;message&quot;:&quot;Not authorized.&quot;}</textarea></div></p></div></div><div class="call"><div class="call__request"><div class="call__request-title">Request</div><p>Operation: GET https://zodiac.com/horoscope/jane</p><p>Hostname: zodiac.com</p><p>Path: /horoscope/jane</p><p>Protocol: https</p></div><div class="call__response"><div class="call__response-title">Response</div><p>Status: 404</p><p>Body:<div class="call__response-body"><textarea rows="5" class="call__body" readonly="">{&quot;message&quot;:&quot;Not authorized.&quot;}</textarea></div></p></div></div><div class="call"><div class="call__request"><div class="call__request-title">Request</div><p>Operation: GET https://zodiac.com/horoscope/jane</p><p>Hostname: zodiac.com</p><p>Path: /horoscope/jane</p><p>Protocol: https</p></div><div class="call__response"><div class="call__response-title">Response</div><p>Status: 404</p><p>Body:<div class="call__response-body"><textarea rows="5" class="call__body" readonly="">{&quot;message&quot;:&quot;Not authorized.&quot;}</textarea></div></p></div></div><div class="call"><div class="call__request"><div class="call__request-title">Request</div><p>Operation: GET https://zodiac.com/horoscope/jane</p><p>Hostname: zodiac.com</p><p>Path: /horoscope/jane</p><p>Protocol: https</p></div><div class="call__response"><div class="call__response-title">Response</div><p>Status: 404</p><p>Body:<div class="call__response-body"><textarea rows="5" class="call__body" readonly="">{&quot;message&quot;:&quot;Not authorized.&quot;}</textarea></div></p></div></div><div class="call"><div class="call__request"><div class="call__request-title">Request</div><p>Operation: GET https://zodiac.com/horoscope/jane</p><p>Hostname: zodiac.com</p><p>Path: /horoscope/jane</p><p>Protocol: https</p></div><div class="call__response"><div class="call__response-title">Response</div><p>Status: 404</p><p>Body:<div class="call__response-body"><textarea rows="5" class="call__body" readonly="">{&quot;message&quot;:&quot;Not authorized.&quot;}</textarea></div></p></div></div><div class="call"><div class="call__request"><div class="call__request-title">Request</div><p>Operation: GET https://zodiac.com/horoscope/jane</p><p>Hostname: zodiac.com</p><p>Path: /horoscope/jane</p><p>Protocol: https</p></div><div class="call__response"><div class="call__response-title">Response</div><p>Status: 404</p><p>Body:<div class="call__response-body"><textarea rows="5" class="call__body" readonly="">{&quot;message&quot;:&quot;Not authorized.&quot;}</textarea></div></p></div></div><div class="call"><div class="call__request"><div class="call__request-title">Request</div><p>Operation: GET https://zodiac.com/horoscope/jane</p><p>Hostname: zodiac.com</p><p>Path: /horoscope/jane</p><p>Protocol: https</p></div><div class="call__response"><div class="call__response-title">Response</div><p>Status: 404</p><p>Body:<div class="call__response-body"><textarea rows="5" class="call__body" readonly="">{&quot;message&quot;:&quot;Not authorized.&quot;}</textarea></div></p></div></div><div class="call"><div class="call__request"><div class="call__request-title">Request</div><p>Operation: GET https://zodiac.com/horoscope/jane</p><p>Hostname: zodiac.com</p><p>Path: /horoscope/jane</p><p>Protocol: https</p></div><div class="call__response"><div class="call__response-title">Response</div><p>Status: 404</p><p>Body:<div class="call__response-body"><textarea rows="5" class="call__body" readonly="">{&quot;message&quot;:&quot;Not authorized.&quot;}</textarea></div></p></div></div><div class="call"><div class="call__request"><div class="call__request-title">Request</div><p>Operation: GET https://zodiac.com/horoscope/jane</p><p>Hostname: zodiac.com</p><p>Path: /horoscope/jane</p><p>Protocol: https</p></div><div class="call__response"><div class="call__response-title">Response</div><p>Status: 404</p><p>Body:<div class="call__response-body"><textarea rows="5" class="call__body" readonly="">{&quot;message&quot;:&quot;Not authorized.&quot;}</textarea></div></p></div></div><div class="call"><div class="call__request"><div class="call__request-title">Request</div><p>Operation: GET https://zodiac.com/horoscope/jane</p><p>Hostname: zodiac.com</p><p>Path: /horoscope/jane</p><p>Protocol: https</p></div><div class="call__response"><div class="call__response-title">Response</div><p>Status: 404</p><p>Body:<div class="call__response-body"><textarea rows="5" class="call__body" readonly="">{&quot;message&quot;:&quot;Not authorized.&quot;}</textarea></div></p></div></div><div class="call"><div class="call__request"><div class="call__request-title">Request</div><p>Operation: GET https://zodiac.com/horoscope/jane</p><p>Hostname: zodiac.com</p><p>Path: /horoscope/jane</p><p>Protocol: https</p></div><div class="call__response"><div class="call__response-title">Response</div><p>Status: 404</p><p>Body:<div class="call__response-body"><textarea rows="5" class="call__body" readonly="">{&quot;message&quot;:&quot;Not authorized.&quot;}</textarea></div></p></div></div></div></div></div></div></div></fieldset></div>
+  </body>
+</html>
