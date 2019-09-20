@@ -8,7 +8,7 @@
     "jest": "^24.9.0",
     "ts-jest": "^24.1.0",
     "typescript": "^3.6.3",
-    "unmock": "^0.3.2",
+    "unmock": "^0.3.3",
     "unmock-jest": "^0.3.2"
   },
   "scripts": {
