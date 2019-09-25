@@ -41,7 +41,6 @@ test(
     await getHoroscope("jane");
     const requestPath = zodiac.spy.getRequestPath();
     expect(requestPath).toBe(`/horoscope/jane`);
-    zodiac.spy.resetHistory();
   })
 );
 
@@ -54,7 +53,6 @@ test(
     expect(horoscope).toBe(
       `Here's your horoscope, ${responseBody.user} of the Great and Mighty sign ${responseBody.sign}. ${responseBody.horoscope}.`
     );
-    zodiac.spy.resetHistory();
   })
 );
 
@@ -66,6 +64,5 @@ test(
     if (zodiac.spy.getResponseCode() !== 200) {
       expect(horoscope).toBe(`Sorry, your stars are not aligned today :-(`);
     }
-    zodiac.spy.resetHistory();
   })
 );
