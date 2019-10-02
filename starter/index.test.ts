@@ -49,7 +49,7 @@ test(
   runner(async () => {
     zodiac.state(withCodes(200));
     const horoscope = await getHoroscope("jane");
-    const responseBody = JSON.parse(zodiac.spy.getResponseBody());
+    const responseBody = zodiac.spy.getResponseBodyAsJson();
     expect(horoscope).toBe(
       `Here's your horoscope, ${responseBody.user} of the Great and Mighty sign ${responseBody.sign}. ${responseBody.horoscope}.`
     );
