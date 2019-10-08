@@ -45,7 +45,7 @@ test(
 );
 
 test(
-  "horoscope does not result in unexpected error when resposne is 200",
+  "horoscope does not result in unexpected error when response is 200",
   runner(async () => {
     zodiac.state(withCodes(200));
     const horoscope = await getHoroscope("jane");
