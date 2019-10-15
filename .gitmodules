@@ -1,0 +1,3 @@
+[submodule "using-service-submodules/__unmock__/petstore.swagger.io"]
+	path = using-service-submodules/__unmock__/petstore.swagger.io
+	url = git@github.com:ksaaskil/petstore.swagger.io.git
