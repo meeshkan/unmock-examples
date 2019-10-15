@@ -1,11 +1,12 @@
-# Example using @unmock service repository
+# Example including service definition as submodule
 
-See [index.test.ts](./index.test.ts) for an example how to use a service installed from `npm` package repository. Petstore service used in the example can be installed from [@unmock/petstore](https://www.npmjs.com/package/@unmock/petstore) with
+Submodule `__unmock__/petstore.swagger.io` was added with
 
 ```bash
-npm i @unmock/petstore -D
-yarn add @unmock/petstore -D
+git submodule add git@github.com:ksaaskil/petstore.swagger.io.git __unmock__/petstore.swagger.io
 ```
+
+See [index.test.ts](./index.test.ts) for an example how to use the service pulled as a submodule.
 
 ## Instructions
 
