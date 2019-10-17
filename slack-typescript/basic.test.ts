@@ -37,6 +37,8 @@ const slackApi = {
   },
 };
 
+jest.setTimeout(10000);
+
 test("I can list some fake channels", runner(async () => {
   slack.state(withCodes(200));
   const data = await slackApi.channelsList();
