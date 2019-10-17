@@ -47,6 +47,21 @@ upgrade_unmocks () {
     loop_directories upgrade $1
 }
 
+link_unmocks () {
+    link () {
+        yarn link unmock unmock-core unmock-node openapi-refinements
+    }
+    loop_directories link $1
+}
+
+unlink_unmocks () {
+    unlink () {
+        yarn unlink unmock unmock-core unmock-node openapi-refinements
+        yarn install --force
+    }
+    loop_directories unlink $1
+}
+
 if [ "$#" -gt 2 ]; then
     echo "Max two arguments expected"
     exit 1
@@ -56,6 +71,10 @@ if [ "$1" == "test" ]; then
     run_tests $2
 elif [ "$1" == "upgrade" ]; then
     upgrade_unmocks $2
+elif [ "$1" == "link" ]; then
+    link_unmocks $2
+elif [ "$1" == "unlink" ]; then
+    unlink_unmocks $2
 else
     echo "Unknown argument $1"
     exit 1
