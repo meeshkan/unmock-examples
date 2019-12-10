@@ -1,6 +1,7 @@
-# Unmock examples
+# Unmock Examples
 
 [![CircleCI](https://circleci.com/gh/unmock/unmock-examples.svg?style=svg)](https://circleci.com/gh/unmock/unmock-examples)
+[![Chat on Gitter](https://badges.gitter.im/gitterHQ/gitter.png)](https://gitter.im/unmock/community)
 
 Some examples using [Unmock](https://unmock.io) with 3rd party APIs.
 
