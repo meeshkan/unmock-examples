@@ -1,4 +1,4 @@
-import { fetchFact, fetchJoke } from "./facts";
+import { fetchFact, fetchJoke } from "~/facts";
 import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 
