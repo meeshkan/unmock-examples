@@ -1,30 +1,39 @@
-import { fetchFact, fetchJoke } from "~/facts";
-import React, { useState, useEffect } from "react";
-import ReactDOM from "react-dom";
-
-/* const main = async () => {
-  console.log("Running main...");
-  const fact = await fetchFact();
-  document.querySelector(".fact").textContent = fact;
-};
-
-main(); */
+import { fetchJoke } from "~/facts";
+import * as React from "react";
+import * as ReactDOM from "react-dom";
 
 console.log("Hello from tsx!");
 
 const Hello = () => {
-  const [fact, setFact] = useState(null as string | null);
+  const [fact, setFact] = React.useState(null as string | null);
+  const [loading, setLoading] = React.useState(false);
+  const [err, setErr] = React.useState(null as Error | null);
 
   const setNewFact = async () => {
-    const fact = await fetchJoke();
-    setFact(fact);
+    try {
+      setLoading(true);
+      const fact = await fetchJoke();
+      setFact(fact);
+      setErr(null);
+    } catch (err) {
+      setFact(null);
+      setErr(err.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
-  useEffect(() => {
+  React.useEffect(() => {
     setNewFact();
   }, []);
 
-  return <div>{fact ? <p>{fact}</p> : <p>Loading...</p>}</div>;
+  return <div>
+    {loading ?
+      <p>Loading...</p>
+    : err ?
+      <p>{err}</p>
+    :
+     <p>{fact}</p>}</div>;
 };
 
 ReactDOM.render(<Hello />, document.getElementById("root"));

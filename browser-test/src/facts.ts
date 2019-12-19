@@ -1,4 +1,5 @@
-import unmock, { u } from "unmock";
+import unmock from "unmock-browser";
+import { u } from "unmock";
 
 const CAT_FACT_URL =
   "https://cat-fact.herokuapp.com/facts/random?animal_type=cat&amount=1";
@@ -16,6 +17,8 @@ const unmockOn = () => {
   return unmock;
 };
 
+unmockOn();
+
 export const fetchFact = async () => {
   const fetchResult = await fetch(CAT_FACT_URL, {
     method: "GET",
@@ -27,11 +30,12 @@ export const fetchFact = async () => {
   const body = await fetchResult.json();
   const fact = body.text;
   console.log(`Got a new fact: ${fact}`);
+  const schema = { type: 'string'};
+  //return jsf.generate(schema)
   return fact;
 };
 
 export const fetchJoke = async () => {
-  unmockOn();
   const fetchResult = await fetch(CN_URL);
   if (!fetchResult.ok) {
     throw Error(`Failed fetching joke with code: ${fetchResult.status}`);
