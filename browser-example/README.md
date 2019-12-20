@@ -1,8 +1,8 @@
 # Example running Unmock in browser
 
-Example web app showing Pokemon data from [PokéAPI](https://pokeapi.co/).
+Example web app showing Pokemon stats from [PokéAPI](https://pokeapi.co/).
 
-Uses Unmock for fetching data when `NODE_ENV===development`, otherwise PokéAPI.
+Uses Unmock for fetching data when `NODE_ENV===development`, otherwise uses PokéAPI.
 
 ## Instructions
 
@@ -27,3 +27,4 @@ yarn build
 ## TODO
 
 - Browser tests (Puppeteer? Karma?)
+- Component with a button for switching Unmock on and off
