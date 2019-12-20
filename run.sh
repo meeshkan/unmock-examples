@@ -49,14 +49,14 @@ upgrade_unmocks () {
 
 link_unmocks () {
     link () {
-        yarn link unmock unmock-core unmock-node openapi-refinements
+        yarn link unmock unmock-core unmock-node openapi-refinements unmock-browser unmock-fetch
     }
     loop_directories link $1
 }
 
 unlink_unmocks () {
     unlink () {
-        yarn unlink unmock unmock-core unmock-node openapi-refinements
+        yarn unlink unmock unmock-core unmock-node openapi-refinements unmock-browser unmock-fetch
         yarn install --force
     }
     loop_directories unlink $1
