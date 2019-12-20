@@ -1,7 +1,6 @@
 {
-  "name": "browser-test",
+  "name": "unmock-browser-example",
   "version": "1.0.0",
-  "main": "index.ts",
   "license": "MIT",
   "scripts": {
     "test": "echo 'No tests yet'",
@@ -13,14 +12,6 @@
     "@types/node": "^12.12.15",
     "@types/react": "^16.9.16",
     "@types/react-dom": "^16.9.4",
-    "jasmine-core": "^3.5.0",
-    "karma": "^4.4.1",
-    "karma-chrome-launcher": "^3.1.0",
-    "karma-html-reporter": "^0.2.7",
-    "karma-jasmine": "^2.0.1",
-    "karma-phantomjs-launcher": "^1.0.4",
-    "karma-spec-reporter": "^0.0.32",
-    "karma-typescript": "^4.1.1",
     "parcel": "^1.12.4",
     "sass": "^1.23.7",
     "typescript": "^3.7.3"
