@@ -26,5 +26,5 @@ yarn build
 
 ## TODO
 
-- Browser tests (Puppeteer? Karma?)
+- Browser tests (Puppeteer? Karma? Cypress?)
 - Component with a button for switching Unmock on and off
