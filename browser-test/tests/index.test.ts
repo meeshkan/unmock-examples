@@ -44,26 +44,3 @@ it(
     expect(requestPath).toBe(`/horoscope/jane`);
   })
 );
-
-/* it(
-  "horoscope does not result in unexpected error when response is 200",
-  runner(async () => {
-    zodiac.state(withCodes(200));
-    const horoscope = await getHoroscope("jane");
-    const responseBody = zodiac.spy.getResponseBodyAsJson();
-    expect(horoscope).toBe(
-      `Here's your horoscope, ${responseBody.user} of the Great and Mighty sign ${responseBody.sign}. ${responseBody.horoscope}.`
-    );
-  })
-);
-
-it(
-  "when the response is not 200, the only outcome is an error",
-  runner(async () => {
-    zodiac.state(withoutCodes(200));
-    const horoscope = await getHoroscope("jane");
-    if (zodiac.spy.getResponseCode() !== 200) {
-      expect(horoscope).toBe(`Sorry, your stars are not aligned today :-(`);
-    }
-  })
-); */

@@ -1,22 +1,39 @@
-import { fetchJoke } from "~/facts";
+import { fetchPoke, PokemonResource } from "~/api";
 import * as React from "react";
 import * as ReactDOM from "react-dom";
+import "~/pokemon.scss";
 
-console.log("Hello from tsx!");
+const Pokemon = ({ resource }: { resource: PokemonResource }) => {
+  return (
+    <div className="pokemon">
+      <p className="pokemon_name">Name: {resource.name}</p>
+      <p className="pokemon_order">Order: {resource.order}</p>
+      <textarea
+        className="pokemon-resource"
+        readOnly
+        style={{ width: "100%" }}
+        rows={10}
+        value={JSON.stringify(resource)}
+      />
+    </div>
+  );
+};
 
-const Hello = () => {
-  const [fact, setFact] = React.useState(null as string | null);
+const SetPokemon = () => {
+  const [pokemonResource, setPokemonResourceState] = React.useState(
+    null as PokemonResource | null
+  );
   const [loading, setLoading] = React.useState(false);
   const [err, setErr] = React.useState(null as Error | null);
 
-  const setNewFact = async () => {
+  const setPokemonResource = async () => {
     try {
       setLoading(true);
-      const fact = await fetchJoke();
-      setFact(fact);
+      const resource = await fetchPoke();
+      setPokemonResourceState(resource);
       setErr(null);
     } catch (err) {
-      setFact(null);
+      setPokemonResourceState(null);
       setErr(err.message);
     } finally {
       setLoading(false);
@@ -24,16 +41,20 @@ const Hello = () => {
   };
 
   React.useEffect(() => {
-    setNewFact();
+    setPokemonResource();
   }, []);
 
-  return <div>
-    {loading ?
-      <p>Loading...</p>
-    : err ?
-      <p>{err}</p>
-    :
-     <p>{fact}</p>}</div>;
+  return (
+    <div>
+      {loading ? (
+        <p>Loading...</p>
+      ) : err ? (
+        <p>{err}</p>
+      ) : pokemonResource ? (
+        <Pokemon resource={pokemonResource} />
+      ) : null}
+    </div>
+  );
 };
 
-ReactDOM.render(<Hello />, document.getElementById("root"));
+ReactDOM.render(<SetPokemon />, document.getElementById("root"));
