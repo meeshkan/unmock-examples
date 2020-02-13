@@ -3,9 +3,9 @@ import axios from "axios";
 import unmock,
 {
   Service,
-  transform,
-  runner
+  transform
 } from "unmock";
+import jestRunner from "unmock-jest-runner"
 
 const { responseBody, withCodes, withoutCodes, mapDefaultTo } = transform;
 
@@ -39,7 +39,7 @@ const slackApi = {
 
 jest.setTimeout(10000);
 
-test("I can list some fake channels", runner(async () => {
+test("I can list some fake channels", jestRunner(async () => {
   slack.state(withCodes(200));
   const data = await slackApi.channelsList();
   // There are some channels indeed
@@ -50,7 +50,7 @@ test("I can list some fake channels", runner(async () => {
   ).toBeTruthy();
 }));
 
-test("I can force an error on all responses", runner(async () => {
+test("I can force an error on all responses", jestRunner(async () => {
   slack.state(
     mapDefaultTo(200),
     withCodes(200)
@@ -63,7 +63,7 @@ test("I can force an error on all responses", runner(async () => {
   expect(typeof channelsInfo.error).toBe("string");
 }));
 
-test("I can set force a response for specific endpoints", runner(async () => {
+test("I can set force a response for specific endpoints", jestRunner(async () => {
   slack.state(
     mapDefaultTo(200, "/channels.list"),
     withCodes(200, "/channels.list"),
@@ -78,7 +78,7 @@ test("I can set force a response for specific endpoints", runner(async () => {
   expect(channelsInfo.ok).toBeTruthy();
 }));
 
-test("I can also set a specific method", runner(async () => {
+test("I can also set a specific method", jestRunner(async () => {
   slack.state(
     withoutCodes("default"),
     responseBody({

@@ -1,5 +1,7 @@
-import unmock, { Service, u, runner, transform } from "unmock";
+import unmock, { Service, u, transform } from "unmock";
 import axios from "axios";
+import jestRunner from "unmock-jest-runner"
+
 const { withCodes, withoutCodes } = transform;
 
 const getHoroscope = async (user: string) => {
@@ -36,7 +38,7 @@ afterEach(() => zodiac.spy.resetHistory());
 
 test(
   "call to the horoscope service uses the username",
-  runner(async () => {
+  jestRunner(async () => {
     zodiac.state(withCodes(200));
     await getHoroscope("jane");
     const requestPath = zodiac.spy.getRequestPath();
@@ -46,7 +48,7 @@ test(
 
 test(
   "horoscope does not result in unexpected error when response is 200",
-  runner(async () => {
+  jestRunner(async () => {
     zodiac.state(withCodes(200));
     const horoscope = await getHoroscope("jane");
     const responseBody = zodiac.spy.getResponseBodyAsJson();
@@ -58,7 +60,7 @@ test(
 
 test(
   "when the response is not 200, the only outcome is an error",
-  runner(async () => {
+  jestRunner(async () => {
     zodiac.state(withoutCodes(200));
     const horoscope = await getHoroscope("jane");
     if (zodiac.spy.getResponseCode() !== 200) {
