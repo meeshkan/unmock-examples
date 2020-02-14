@@ -1,5 +1,7 @@
-import unmock, { Service, u, runner, transform } from "unmock";
+import unmock, { Service, u, transform } from "unmock";
 import axios from "axios";
+import runner from "unmock-jest-runner"
+
 const { withCodes, withoutCodes } = transform;
 
 const getHoroscope = async (user: string) => {
